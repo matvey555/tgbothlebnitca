@@ -3,7 +3,7 @@ from aiogram.utils import executor
 
 # Ваш токен и ID администратора
 API_TOKEN = '7350546586:AAHjDS1QW6TluH-ptUsz7XLy96Yi8b1qoTk'
-ADMIN_IDS = ['1038191408', '924008164']
+ADMIN_ID = '924008164'
 
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
@@ -17,7 +17,7 @@ async def send_welcome(message: types.Message):
 @dp.message_handler()
 async def forward_message(message: types.Message):
     # Перенаправляем сообщение админу
-    await bot.send_message(ADMIN_IDS, f"Новое сообщение от {message.from_user.full_name} (@{message.from_user.username}):\n\n{message.text}")
+    await bot.send_message(ADMIN_ID, f"Новое сообщение от {message.from_user.full_name} (@{message.from_user.username}):\n\n{message.text}")
     # Отправляем ответное сообщение пользователю
     await message.reply("Спасибо за твою активность и вовлеченность! Ответ предоставим в течение 2 рабочих дней🥨")
 
